@@ -1,9 +1,0 @@
-Goals:
-
-1. read and understand hello.c
-- header files
-- int main(argc, argv)
-- what happens to return
-
-2. compile hello.c to an executable using GCC
-3. run hello.c
