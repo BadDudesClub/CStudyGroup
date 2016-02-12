@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
+//This is a test
 resetTheBoard(int* board_pointer){
 
 	int length = sizeof(board_pointer);
@@ -53,23 +53,23 @@ printTheBoard(int* board_pointer){
 }
 
 void printBitsInByte(char byte){
-	int j;
+	int i;
 
 	//Shift to look at the byte:
-	for (j = 7; j > 0; j = j - 1)
+	for (i = 0; i <= 7; i++)
 	{
-		char bit;
-		int i;
+		char bitShifted = byte >> i;
 
-		bit = byte << i;
+		char bitMask = (char) 1;
+		char output = bitShifted & bitMask;
 
-		if(bit == 80)
+		if(output == 1)
 		{
-			printf(" TRUE ");
+			printf("1");
 		}
 		else
 		{
-			printf(" FALSE ");
+			printf("0");
 		}
 	}
 }
