@@ -52,7 +52,7 @@ printTheBoard(int* board_pointer){
 */
 }
 
-void printBitsInByte(char byte){
+void printBitsInByte(int byte){
 	int i;
 
 	//Shift to look at the byte:
@@ -88,7 +88,9 @@ int main (int argc, char* argv[]){
 		return 1;
 	}
 
-	printBitsInByte(*argv[1]);
+	int val = atoi(argv[1]);
+
+	printBitsInByte(val);
 
 	printf("\n");
 }
