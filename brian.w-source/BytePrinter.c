@@ -10,10 +10,8 @@ resetTheBoard(int* board_pointer){
 	while(index < length)
 	{
 		board_pointer[index] = 0;
-
 		index++;
 	}
-
 }
 
 //<NA>: Print each bit. Rather than each byte:

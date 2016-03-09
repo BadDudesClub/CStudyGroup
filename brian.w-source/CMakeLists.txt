@@ -6,10 +6,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "~/C_Output")
 set(SOURCE_DIRECTORY "~/source/CStudyGroup/")
 
-#set(SOURCE_FILES "~/source/CStudyGroup/brian.w-source/BytePrinter.c")
-include_directories(BEFORE ${SOURCE_DIRECTORY}/include/)
+
+include_directories(BEFORE ${SOURCE_DIRECTORY}/brian.w-source/include/)
 include_directories(BEFORE ${SOURCE_DIRECTORY}/common/include/)
-set(SOURCE_FILES "~/source/CStudyGroup/brian.w-source/Experiments.c")
+set(SOURCE_FILES "~/source/CStudyGroup/brian.w-source/board.c")
+set(SOURCE_FILES "~/source/CStudyGroup/brian.w-source/board_tests.c")
 
 add_executable(NQueens ${SOURCE_FILES})
 
