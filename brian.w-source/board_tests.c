@@ -1,38 +1,35 @@
 #include<stdio.h>
 #include <board.h>
-#include<minunit.h>
+#include<Cunit.h>
 
-int tests_run = 0;
+int guard_tests(){
 
-static char* tests(){
-    //Validate guards:
-    mu_assert("should throw an error due to bad index of -1", insert_bit(-1, 0, 1) == -1);
-    mu_assert("should throw an error due to bad index of 17", insert_bit(17, 0, 1) == -1);
-    mu_assert("should throw an error due to bad input of 3", insert_bit(0, 0, 3) == -1);
-    mu_assert("should throw an error due to bad input of -1", insert_bit(0, 0, -1) == -1);
+    printf("===Validate Guards===\n");
+
+    cu_isTrue("Should throw an error due to bad index of -1\n",insert_bit(-1, 0, 1) == -1);
+    cu_isTrue("should throw an error due to bad index of 17\n", insert_bit(17, 0, 1) == -1);
+    cu_isTrue("should throw an error due to bad input of 3\n", insert_bit(0, 0, 3) == -1);
+    cu_isTrue("should throw an error due to bad input of -1\n", insert_bit(0, 0, -1) == -1);
+    
+}
+
+int insertion_tests(){
 
     //Validate insertion is correct:
-    mu_assert("Should return a new store of 1", insert_bit(0, 0, 1) == 1);
-    mu_assert("Should return a new store of 2", insert_bit(1, 0, 1) == 2);
+    printf("===Validate Bit Insertion===\n");
 
-    //Passes:
-    return NULL;
+    cu_assert_ints_are_equal(insert_bit(0, 0, 1), 1);
+    cu_assert_ints_are_equal(insert_bit(1, 0, 1), 2);
+    cu_assert_ints_are_equal(insert_bit(0, 1, 0), 0);
+    cu_assert_ints_are_equal(insert_bit(0, 3, 0), 2);
+    cu_assert_ints_are_equal(insert_bit(0, 3, 0), 2);
+
 }
 
-static char* all_tests(){
-    mu_run_test(tests);
-    return NULL;
-}
 
 int main(int argc, char** argv) {
-
-    char* test_failure = all_tests();
-
-    if(test_failure == NULL){
-        printf("\ntest ok!\n");
-    } else {
-        printf("\ntest failure: %s\n", test_failure);
-    }
+    guard_tests();
+    insertion_tests();
 
     printf("\nTotal tests run: %d\n", tests_run);
 }
