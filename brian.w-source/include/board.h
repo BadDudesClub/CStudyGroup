@@ -1,21 +1,35 @@
 #ifndef ___BOARD_
 #define ___BOARD_
 
-int insert_bit(int index, int store, int bit) {
-    int mask = 1;
+int insert_bit(int *board, int xCoord, int yCoord, int bit) {
 
-    if(0 > index || index > 16)
+    if(0 > xCoord || xCoord > 7)
+        return -1;
+
+    if(0 > yCoord || yCoord > 7)
         return -1;
 
     if(0 > bit || bit > 1)
         return -1;
 
-    mask = mask << index;
+    int index = (yCoord * 8) + xCoord;
 
-    if(bit == 1)
-        return store | mask;
+    board[index] = bit;
 
-    return store ^ mask;
+    return 1;
+}
+
+int get_bit(int *board, int xCoord, int yCoord){
+
+    if(0 > xCoord || xCoord > 7)
+        return -1;
+
+    if(0 > yCoord || yCoord > 7)
+        return -1;
+
+    int index = (yCoord * 8) + xCoord;
+
+    return board[index];
 }
 
 #endif
